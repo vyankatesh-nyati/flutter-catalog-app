@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/drawer.dart';
+
 class HomePage extends StatelessWidget {
   final int days = 1;
   final String name = "Vyankatesh Nyati";
@@ -14,7 +16,7 @@ class HomePage extends StatelessWidget {
         child: Text(
             "Hey hello, I am $name.\nI have the experince of $days day in flutter.\nwho are you?"),
       ),
-      drawer: const Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }
