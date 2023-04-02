@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/models/catalog.dart';
 
+import '../widgets/ItemWidget.dart';
 import '../widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
-  final int days = 1;
-  final String name = "Vyankatesh Nyati";
-
   @override
   Widget build(BuildContext context) {
+    final dummyList = List.generate(20, (index) => CatalogModel.items[0]);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Catalog App"),
       ),
-      body: Center(
-        child: Text(
-            "Hey hello, I am $name.\nI have the experince of $days day in flutter.\nwho are you?"),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: dummyList.length,
+          itemBuilder: (context, index) {
+            return ItemWidget(
+              item: dummyList[index],
+            );
+          },
+        ),
       ),
       drawer: MyDrawer(),
     );
